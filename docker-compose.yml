@@ -1,16 +1,16 @@
-version: '15.0.0.1'
+version: '14.0.0.1'
 services:
   web:
     #build: .
-    image: odoo:15.0
+    image: odoo:14.0
     ports:
       - "8069:8069"
     volumes:
-      - odoo_15_web_data:/var/lib/odoo
+      - odoo_14_web_data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
   db:
-    image: postgres:13
+    image: postgres:10
     ports:
       - "5432:5432"
     environment:
@@ -19,7 +19,7 @@ services:
       - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
-      - odoo_15_db_data:/var/lib/postgresql/data/pgdata
+      - odoo_14_db_data:/var/lib/postgresql/data/pgdata
 volumes:
-  odoo_15_web_data:
-  odoo_15_db_data:
+  odoo_14_web_data:
+  odoo_14_db_data:
